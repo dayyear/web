@@ -1,7 +1,16 @@
+import datetime
 import json
 import time
 
+import pytz
 import requests
+from dateutil.relativedelta import relativedelta
+
+
+# 判断本周是否跨月
+def is_week_across_months(today):
+    end_of_week = today + relativedelta(weekday=6)  # 利用relativedelta将日期调整到本周的最后一天end_of_week
+    return today.month != end_of_week.month
 
 
 # 我的月度积分, 第一名月度积分
@@ -25,6 +34,11 @@ def run(token):
         response = requests.get(url=url, headers=headers)
         week_list_json = json.loads(response.text)
         for week_json in week_list_json['page']['data']:  # 遍历周测列表
+            today = datetime.datetime.now().astimezone(pytz.timezone('Asia/Shanghai'))
+            print('[周测] 当前时间:', today)
+            if is_week_across_months(today):
+                print('[周测] 本周跨月，周测暂缓')
+                break
             if week_json['completeStatus'] == 1:
                 break
             my_month_point, first_month_point = get_month_point(token, headers)
