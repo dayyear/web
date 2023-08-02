@@ -35,9 +35,8 @@ def run(token):
         week_list_json = json.loads(response.text)
         for week_json in week_list_json['page']['data']:  # 遍历周测列表
             today = datetime.datetime.now().astimezone(pytz.timezone('Asia/Shanghai'))
-            print('[周测] 当前时间:', today)
             if is_week_across_months(today):
-                print('[周测] 本周跨月，周测暂缓')
+                print('[周测] 本周跨月，周测暂缓', today)
                 break
             if week_json['completeStatus'] == 1:
                 break
