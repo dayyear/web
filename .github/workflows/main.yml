@@ -22,3 +22,4 @@ jobs:
     - name: Run Python Script
       run: |
         python jhjd.py
+        python aliyun.py
