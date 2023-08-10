@@ -83,6 +83,9 @@ def run(token):
     # 资讯
     try:
         news_id_list = []
+        response_json = json.loads(requests.get(url=f'https://jhjd.ntgaj.cn/api/app/news/recommend?token={token}').text)
+        for news in response_json['data']:
+            news_id_list.append(news['id'])
         response_json = json.loads(requests.get(url=f'https://jhjd.ntgaj.cn/api/app/news/list?token={token}').text)
         for news in response_json['page']['data']:
             if news['readStatus'] == 1:  # 过滤掉已读
