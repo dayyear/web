@@ -105,7 +105,8 @@ def run(token):
 
 if __name__ == '__main__':
     tokens = [
-        '8f468c873a32bb0619eaeb2050ba45d1',  # 顾晓静
+        '8f468c873a32bb0619eaeb2050ba45d1',  # 顾xiaojing
+        '92977ae4d2ba21425a59afb269c2a14e',  #王peipei
         'c22abfa379f38b5b0411bc11fa9bf92f'  # self
     ]
     for token in tokens:
