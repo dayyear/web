@@ -54,7 +54,7 @@ def run(token):
                 else:
                     raise Exception(f"未知的questionType：{question_json['questionType']}")
                 my_answer_list.append({'questionId': question_json['id'], 'answer': answer, 'activityId': question_json['activityId']})
-            time.sleep(10)
+            time.sleep(2)
             response_json = json.loads(requests.post(url=f'https://jhjd.ntgaj.cn/api/app/actvity/day/submit?token={token}', json=my_answer_list, headers=headers).text)
             print('[周测]', my_answer_list, response_json)
             break
@@ -74,7 +74,7 @@ def run(token):
             my_month_point, first_month_point = get_month_point(token, headers)
             if my_month_point >= first_month_point:
                 break
-            time.sleep(10)
+            time.sleep(2)
             response_json = json.loads(requests.post(url=f'https://jhjd.ntgaj.cn/api/app/study/addScore?token={token}', data={'studyId': study_id}, headers=headers).text)
             print('[日课]', study_id, response_json)
     except Exception as ex:
@@ -96,7 +96,7 @@ def run(token):
             my_month_point, first_month_point = get_month_point(token, headers)
             if my_month_point >= first_month_point:
                 break
-            time.sleep(10)
+            time.sleep(2)
             response_json = json.loads(requests.post(url=f'https://jhjd.ntgaj.cn/api/app/news/addScore?token={token}', data={'newsId': news_id}, headers=headers).text)
             print('[资讯]', news_id, response_json)
     except Exception as ex:
