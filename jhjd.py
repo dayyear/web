@@ -41,7 +41,7 @@ def run(token):
             if week_json['completeStatus'] == 1:
                 break
             my_month_point, first_month_point = get_month_point(token, headers)
-            if my_month_point >= first_month_point - 5:
+            if my_month_point > first_month_point - 5:
                 break
             question_list = requests.get(f'https://jhjd.ntgaj.cn/api/app/actvity/week/detail?activityId={week_json["id"]}&token={token}')
             question_list_json = json.loads(question_list.text)
