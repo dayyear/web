@@ -50,7 +50,7 @@ def run(token):
                 if question_json['questionType'] == 1:  # 单选题
                     answer = question_json['remark'][0]
                 elif question_json['questionType'] == 2:  # 多选题
-                    answer = question_json['remark'].replace('、', ';')
+                    answer = ';'.join(question_json['remark'])
                 else:
                     raise Exception(f"未知的questionType：{question_json['questionType']}")
                 my_answer_list.append({'questionId': question_json['id'], 'answer': answer, 'activityId': question_json['activityId']})
