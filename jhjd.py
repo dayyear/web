@@ -109,6 +109,7 @@ if __name__ == '__main__':
         '92977ae4d2ba21425a59afb269c2a14e',  # 王peipei
         'ca75910166da03ff9d4655a0338e6b09',  # 张lihua
         '4311359ed4969e8401880e3c1836fbe1',  # 张yi
+        '9aa42b31882ec039965f3c4923ce901b',  # 王ning
         'c22abfa379f38b5b0411bc11fa9bf92f'  # self
     ]
     for token in tokens:
