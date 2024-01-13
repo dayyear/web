@@ -3,7 +3,7 @@ import json
 import requests
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36'}
-refresh_token = 'f7465a93896949a8b2fa47f7b6d1977e'
+refresh_token = '08ab9b6ae9064469ae67021433dd298f'
 
 # 登录
 response = requests.post(url=f'https://auth.aliyundrive.com/v2/account/token', json={'grant_type': 'refresh_token', 'refresh_token': refresh_token}, headers=headers)
